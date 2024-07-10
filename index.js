@@ -9,7 +9,7 @@ const URL = process.env.DB;
 
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 console.log(URL);
 
 // Read-get inc/exp data
@@ -108,7 +108,7 @@ app.delete("/delete/:id", async (req, res) => {
     // Select collection and do operation (CRUD)
     const result = await db.collection("memory").deleteOne({ _id: new ObjectId(id) });
 
-    // Close connection
+    // Close connection DB
     await connection.close();
 
     if (result.deletedCount === 0) {
